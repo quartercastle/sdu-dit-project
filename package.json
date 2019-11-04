@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@syncfusion/ej2-react-grids": "^17.3.21",
     "cors": "^2.8.5",
     "express": "^4.17.1"
   },
