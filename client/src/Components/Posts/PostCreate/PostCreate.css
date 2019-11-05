@@ -1,4 +1,4 @@
-form{
+.postCreation_Content > div{
     max-width: 1000px;
     margin:auto;
 }
@@ -19,7 +19,7 @@ label{
     float: left;
     width: 12%;
 }
-form > div{
+.postCreation_Content div > div{
     margin: 2em;
 }
 #submit{
