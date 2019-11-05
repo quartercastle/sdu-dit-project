@@ -3,6 +3,7 @@
     background-color: #09d3ac;
     overflow: auto;
     position: fixed;
+    top:0;
   }
   
   .navbar a {

@@ -1,0 +1,56 @@
+
+.modal {
+    font-size: 12px;
+  }
+  .modal > .header {
+    width: 100%;
+    border-bottom: 1px solid gray;
+    font-size: 18px;
+    text-align: center;
+    padding: 5px;
+  }
+  .modal > .content {
+    width: 100%;
+    padding: 10px 5px;
+  }
+  .modal > .actions {
+    width: 100%;
+    padding: 10px 5px;
+    margin: auto;
+    text-align: center;
+  }
+  .modal > .close {
+    cursor: pointer;
+    position: absolute;
+    display: block;
+    padding: 2px 5px;
+    line-height: 20px;
+    right: -10px;
+    top: -10px;
+    font-size: 24px;
+    background: #ffffff;
+    border-radius: 18px;
+    border: 1px solid #cfcece;
+  }
+  .createPostPop{
+    margin: 65px 0 0 30px;
+    
+  }
+
+  button {
+      border-radius: 4em;
+    background-color: white; 
+    color: black; 
+    border: 2px solid #09d3ac;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    padding:1em;
+  }
+  
+  button:hover {
+    background-color: #09d3ac;
+    color: white;
+  }
+  #submit{
+    margin: 20px 40% 20px 40%;
+  }
