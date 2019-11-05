@@ -12,7 +12,7 @@ textarea{
     height: 15em;
     resize: none;
 }
-#MC{
+#post{
     height:25em;
 }
 label{
@@ -35,6 +35,6 @@ form > div{
 }
 
 .postCreation_Content{
-    margin-bottom: 2em;
+    margin: 10em;
     text-align: center;
 }
