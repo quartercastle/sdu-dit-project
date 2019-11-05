@@ -4,37 +4,31 @@ const axios = Axios.create({
   baseURL: "http://localhost:8000"
 });
 
-const fetchBlogPosts = async (page, pageSize) => {
+const fetchPosts = async (page, pageSize) => {
   //var res = await axios.get("/api/posts?");
 
-  const posts = [
+  return [
     {
       id: "",
-      author: "",
-      title: "",
-      description: "",
+      author: "Ulle",
       content: ""
     },
     {
       id: "",
-      author: "",
-      title: "",
-      description: "",
+      author: "Morten",
       content: ""
     }
   ];
 };
 
-const fetchBlogPost = async id => {
+const fetchPost = async id => {
   //var res = await axios.get("/api/post/id");
 
   return {
     id: "",
     author: "",
-    title: "",
-    description: "",
     content: ""
   };
 };
 
-export { fetchBlogPosts, fetchBlogPost };
+export { fetchPosts, fetchPost };
