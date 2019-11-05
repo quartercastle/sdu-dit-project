@@ -1,8 +1,15 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import "./PostList.css";
+import PostCard from "../../Cards/PostCard";
 import { fetchPosts } from "../../api/backend";
+import {
+  faChevronUp,
+  faChevronDown,
+  faCommentAlt
+} from "@fortawesome/free-solid-svg-icons";
 
 export default class PostList extends Component {
   constructor(props) {
@@ -42,20 +49,17 @@ export default class PostList extends Component {
         <div className="postContainer">
           {this.state.posts.map(v => {
             return (
-              <Link key={v.id} to={`/post/${v.id}`}>
-                <div className="cardContainer">
-                  <div className="postTitle">{v.author}</div>
-
-                  <div className="postDescription">{v.content}</div>
-
-                  <div></div>
-                </div>
-              </Link>
+              <PostCard
+                key={v.id}
+                id={v.id}
+                date={v.date}
+                author={v.author}
+                content={v.content}
+              ></PostCard>
             );
           })}
         </div>
       );
-      return;
     } else {
       return (
         <div className="spinnerContainer">

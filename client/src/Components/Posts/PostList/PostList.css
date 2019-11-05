@@ -37,25 +37,77 @@
   .cardContainer {
     min-width: 70vw;
     min-height: 70px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    padding: 15px;
     border-radius: 15px;
     box-shadow: 1px -1px 38px -12px rgba(0,0,0,.56), 0 4px 25px 0 rgba(0,0,0,.12), 0 8px 10px -5px rgba(0,0,0,.2);
     background: white;
     margin-bottom: 20px;
+    padding-left: 30px;
+    padding-right: 15px;
+    padding-top: 30px;
+    padding-bottom: 30px;
   }
 
-  .cardContainer:hover {
+  .flexBox {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .cardContent {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+
+  .cardButton {
+    min-width: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 5px;
+  }
+
+  .upvoteDownVote {
+    align-items: center;
+    display: flex;
+  }
+
+  .cardFooter {
+    margin-top:30px;
+    margin-bottom: -10px;
+    display: flex;
+    color: #999999;
+    justify-content: safe;
+  }
+
+  .cardFooter:hover {
+    color: #666666;
     cursor: pointer;
+  }
+
+  .upvoteDownVote:hover {
+    cursor: pointer;
+  }
+
+  .awesomeIcon {
+    margin-left: 10px;
+    margin-right: 5px;
   }
 
   .postTitle {
     margin-bottom: 20px;
+    font-weight: 700;
+    font-family: Roboto Slab,Times New Roman,serif;
+    font-size: 1.3rem;
+    line-height: 1.4em;
   }
 
   .postDescription {
+    font-family: Roboto,Helvetica,Arial,sans-serif;
+    font-weight: 300;
+    line-height: 1.5em;
+  }
 
+  .cardLink {
+    text-decoration: none;
+    color: #3c4858;
   }
