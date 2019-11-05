@@ -1,6 +1,7 @@
 .headerContainer{
     height:100vh;
     padding-top: 15%;
+    text-align: center;
 }
 .headerButtonContainer{
     display: grid;
@@ -13,7 +14,8 @@
     border-radius: 2em;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.11);
     transition: 0.4s;
-    margin: 5em;
+    margin-top: 5em;
+    font-size: 20px;
 }
 .headerButtonContainer > a > button:hover{
     box-shadow: 0 2px 20px rgb(9, 211, 172);
