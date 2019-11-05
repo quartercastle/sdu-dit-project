@@ -13,8 +13,8 @@ render() {
                 Here yo have two chooses: 
             </p>
             <div className="SPButtonContainer">
-                <Link to='/BlogList'><button>All blog posts</button></Link>
-                <Link to='/BLogCreate'><button>Make new blog post</button></Link>
+                <Link to='/PostList'><button>All blog posts</button></Link>
+                <Link to='/PostCreate'><button>Make new blog post</button></Link>
             </div>
         </div>
         );

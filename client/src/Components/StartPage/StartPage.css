@@ -1,14 +1,14 @@
-.headerContainer{
+.SPContainer{
     height:100vh;
     padding-top: 15%;
     text-align: center;
 }
-.headerButtonContainer{
+.SPButtonContainer{
     display: grid;
     grid-template-columns: 300px 300px;
     justify-content: center;
 }
-.headerButtonContainer > a > button{
+.SPButtonContainer > a > button{
     height: 200px;
     width: 200px;
     border-radius: 2em;
@@ -18,6 +18,6 @@
     font-size: 20px;
     outline: none;
 }
-.headerButtonContainer > a > button:hover{
+.SPButtonContainer > a > button:hover{
     box-shadow: 0 2px 20px rgb(9, 211, 172);
 }
