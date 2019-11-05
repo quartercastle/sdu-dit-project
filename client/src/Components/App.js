@@ -33,9 +33,9 @@ export default class App extends Component {
     return (
       <Router history={hist}>
         <Switch>
-          <Route path="/BlogCreate" Component={BlogCreate} />
-          <Route path="/BlogList" Component={BlogList} />
-          <Route path="/" Component={BlogList} />
+          <Route path="/BlogCreate" component={BlogCreate} />
+          <Route path="/BlogList" component={BlogList} />
+          <Route path="/" component={BlogList} />
         </Switch>
       </Router>
     );
