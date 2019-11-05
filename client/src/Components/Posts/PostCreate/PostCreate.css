@@ -34,6 +34,7 @@ form > div{
     background-color: #09d3ac4d;
 }
 
-.blogCreation_Content{
+.postCreation_Content{
     margin-bottom: 2em;
+    text-align: center;
 }

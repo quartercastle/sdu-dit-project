@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import "./BlogCreate.css";
+import "./PostCreate.css";
 
-export default class BlogCreate extends Component {
+export default class PostCreate extends Component {
   render() {
     return (
-      <div className="blogCreation_Content">
+      <div className="postCreation_Content">
         <h2>Hello there !</h2>
         <p>Here you can create a NEW blog post</p>
         <form>
