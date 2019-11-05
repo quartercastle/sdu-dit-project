@@ -7,6 +7,8 @@ import {
   faCommentAlt
 } from "@fortawesome/free-solid-svg-icons";
 
+import style from "./postCard.css";
+
 const PostCard = props => {
   const upvote = () => {
     console.log("Should upvote");

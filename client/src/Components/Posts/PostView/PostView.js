@@ -1,5 +1,7 @@
 import React from "react";
 import { fetchPost, fetchPosts } from "../../api/backend";
+import PostCard from "../../Cards/PostCard";
+import style from "./postView.css";
 
 export default class PostView extends React.Component {
   constructor(props) {
@@ -19,7 +21,16 @@ export default class PostView extends React.Component {
     var res = await fetchPosts(this.props.match.params.id);
   };
 
+  renderCommentList = () => {
+    return <div></div>;
+  };
+
   render() {
-    return <div>{this.props.id}</div>;
+    return (
+      <div className="postViewContainer">
+        <PostCard></PostCard>
+        {this.renderCommentList()}
+      </div>
+    );
   }
 }
