@@ -1,18 +1,18 @@
 import React, {Component} from 'react';
-import './Header.css';
+import './StartPage.css';
 import {Link} from 'react-router-dom';
-export default class Header extends Component{
+export default class StartPage extends Component{
 
 render() {
   return (
-        <div className="headerContainer">
+        <div className="SPContainer">
             <h1>
                 Welcome to our awesome blog page !
             </h1>
             <p>
                 Here yo have two chooses: 
             </p>
-            <div className="headerButtonContainer">
+            <div className="SPButtonContainer">
                 <Link to='/BlogList'><button>All blog posts</button></Link>
                 <Link to='/BLogCreate'><button>Make new blog post</button></Link>
             </div>

@@ -7,9 +7,9 @@ import { createBrowserHistory } from "history";
 import style from "./App.css";
 
 // Component imports
-import BlogCreate from "./Blogs/BlogCreate/BlogCreate";
-import BlogList from "./Blogs/BlogList/BlogList";
-import Header from './Header/Header'
+import PostCreate from "./Posts/PostCreate/PostCreate";
+import PostList from "./Posts/PostList/PostList";
+import StartPage from './StartPage/StartPage'
 
 var hist = createBrowserHistory();
 
@@ -34,9 +34,9 @@ export default class App extends Component {
     return (
       <Router history={hist}>
         <Switch>
-          <Route path="/BlogCreate" component={BlogCreate} />
-          <Route path="/BlogList" component={BlogList} />
-          <Route path="/" component={Header} />
+          <Route path="/PostCreate" component={PostCreate} />
+          <Route path="/PostList" component={PostList} />
+          <Route path="/" component={StartPage} />
         </Switch>
       </Router>
     );

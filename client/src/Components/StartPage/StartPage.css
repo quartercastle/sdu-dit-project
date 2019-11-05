@@ -16,6 +16,7 @@
     transition: 0.4s;
     margin-top: 5em;
     font-size: 20px;
+    outline: none;
 }
 .headerButtonContainer > a > button:hover{
     box-shadow: 0 2px 20px rgb(9, 211, 172);
