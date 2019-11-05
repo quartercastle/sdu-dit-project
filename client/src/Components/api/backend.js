@@ -9,14 +9,14 @@ const fetchPosts = async (page, pageSize) => {
 
   return [
     {
-      id: "",
+      id: "1",
       author: "Ulle",
-      content: ""
+      content: "Er Morten den højeste person i verden?"
     },
     {
-      id: "",
+      id: "2",
       author: "Morten",
-      content: ""
+      content: "Er ulle den klogeste person i verden? Det tror jeg nok lige"
     }
   ];
 };

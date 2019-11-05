@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+
 import "./PostList.css";
 import { fetchPosts } from "../../api/backend";
 
@@ -39,7 +41,17 @@ export default class PostList extends Component {
       return (
         <div className="postContainer">
           {this.state.posts.map(v => {
-            return <div>{v.author}</div>;
+            return (
+              <Link key={v.id} to={`/post/${v.id}`}>
+                <div className="cardContainer">
+                  <div className="postTitle">{v.author}</div>
+
+                  <div className="postDescription">{v.content}</div>
+
+                  <div></div>
+                </div>
+              </Link>
+            );
           })}
         </div>
       );

@@ -21,7 +21,7 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    margin-top: 25px;
+    margin-top: 75px;
   }
   
   @keyframes spin {
@@ -32,4 +32,30 @@
   .failedImg {
     width: 100%;
     height: 100%;
+  }
+
+  .cardContainer {
+    min-width: 70vw;
+    min-height: 70px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 1px -1px 38px -12px rgba(0,0,0,.56), 0 4px 25px 0 rgba(0,0,0,.12), 0 8px 10px -5px rgba(0,0,0,.2);
+    background: white;
+    margin-bottom: 20px;
+  }
+
+  .cardContainer:hover {
+    cursor: pointer;
+  }
+
+  .postTitle {
+    margin-bottom: 20px;
+  }
+
+  .postDescription {
+
   }
