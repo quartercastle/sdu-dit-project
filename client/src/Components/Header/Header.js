@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './Header.css';
+import {Link} from 'react-router-dom';
 export default class Header extends Component{
 
 render() {
@@ -12,8 +13,8 @@ render() {
                 Here yo have two chooses: 
             </p>
             <div className="headerButtonContainer">
-                <a href='#'><button>All blog posts</button></a>
-                <a href='#'><button>Make new blog post</button></a>
+                <Link to='/BlogList'><button>All blog posts</button></Link>
+                <Link to='/BLogCreate'><button>Make new blog post</button></Link>
             </div>
         </div>
         );
