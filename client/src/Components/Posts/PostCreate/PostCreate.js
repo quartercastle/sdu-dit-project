@@ -5,29 +5,15 @@ export default class PostCreate extends Component {
   render() {
     return (
       <div className="postCreation_Content">
-        <h2>Hello there !</h2>
-        <p>Here you can create a NEW blog post</p>
+        <p>Here you can create a NEW post</p>
         <form>
           <div>
-            <label>Title: </label>
-            <input
-              type="text"
-              name="title"
-              placeholder="New blog post"
-              id="blogTitle"
-            ></input>
-          </div>
-          <div>
             <label>Author: </label>
-            <input type="text" name="author" id="blogAuthor"></input>
+            <input type="text" name="author" id="postAuthor"></input>
           </div>
           <div>
-            <label>Short decribsion: </label>
-            <textarea name="shortDecribsion" id="SD"></textarea>
-          </div>
-          <div>
-            <label>Main content: </label>
-            <textarea name="mainConten" id="MC"></textarea>
+            <label>Post: </label>
+            <textarea name="post" id="post"></textarea>
           </div>
           <input type="submit" value="Submit" id="submit"></input>
         </form>

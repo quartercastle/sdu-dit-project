@@ -7,6 +7,7 @@ import { createBrowserHistory } from "history";
 import style from "./App.css";
 
 // Component imports
+import Header from "./Header/Header"
 import PostCreate from "./Posts/PostCreate/PostCreate";
 import PostList from "./Posts/PostList/PostList";
 import StartPage from './StartPage/StartPage'
@@ -33,6 +34,7 @@ export default class App extends Component {
   render() {
     return (
       <Router history={hist}>
+        <Header />
         <Switch>
           <Route path="/PostCreate" component={PostCreate} />
           <Route path="/PostList" component={PostList} />
