@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Popup from "reactjs-popup";
-import { createPost } from "../../../api/backend";
+import { createPost, fetchPosts } from "../../../api/backend";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import "./Popup.css";
@@ -20,6 +20,7 @@ onPostInput = (event) => {
 }
 handleSubmit = () => {
     var result = createPost(this.state.author, this.state.post);
+    fetchPosts();
 }
   render() {
     return (
