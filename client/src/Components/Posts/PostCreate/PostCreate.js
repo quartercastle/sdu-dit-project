@@ -21,13 +21,20 @@ export default class PostCreate extends Component {
         <div className="postCreateContainer">
           <div className="postCreateTitle">Write your post here!</div>
           <div className="contentInputContainer">
-            <TextField className="contentInput" label="Author"></TextField>
+            <TextField
+              className="contentInput"
+              label="Author"
+              onChange={event => this.onAuthorInput(event)}
+              value={this.state.author}
+            ></TextField>
           </div>
           <div className="contentInputContainer">
             <TextField
               className="contentInput"
               multiline
+              onChange={event => this.onPostInput(event)}
               label="Subject"
+              value={this.state.post}
             ></TextField>
           </div>
 
@@ -37,11 +44,3 @@ export default class PostCreate extends Component {
     );
   }
 }
-
-/*
-<TextField className="contentInput" label="Author"></TextField>
-          <TextField
-            className="contentInput"
-            multiline
-            label="Author"
-          ></TextField>*/
