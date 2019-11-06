@@ -4,16 +4,16 @@
     text-align: center;
 }
 .SPButtonContainer{
-    display: grid;
-    grid-template-columns: 300px 300px;
+    display: flex;
+    
     justify-content: center;
-    height: 300px;
+    
 }
 .SPButtonContainer:hover{
     cursor: pointer;
 }
 
-.SPButtonContainer > button{
+.SPButtonContainer > a > button{
     border-radius: 2em;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.11);
     transition: 0.4s;
@@ -21,15 +21,17 @@
     font-size: 20px;
     outline: none;
     cursor: pointer;
+    height: 300px;
+    width: 300px;
 
 }
-.SPButtonContainer > button:hover{
+.SPButtonContainer > a > button:hover{
     box-shadow: 0 2px 20px rgb(9, 211, 172);
     background-color: rgb(9, 211, 172);
     ;
 }
 
-.SPButtonContainer > button > a{
+.SPButtonContainer > a > button{
     text-decoration: none;
     color: black;
 }

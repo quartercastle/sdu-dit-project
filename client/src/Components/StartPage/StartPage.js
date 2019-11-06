@@ -7,14 +7,14 @@ render() {
   return (
         <div className="SPContainer">
             <h1>
-                Welcome to our awesome blog page !
+                Welcome to our awesome post page !
             </h1>
             <p>
-                Here yo have two chooses: 
+                Here you have two chooses: 
             </p>
             <div className="SPButtonContainer">
-                <button><Link to='/PostList'>View all posts</Link></button>
-                <button><Link to='/PostCreate'>Create new post</Link></button>
+                <Link to='/PostList'><button>View all posts</button></Link>
+                <Link to='/PostCreate'><button>Create new post</button></Link>
             </div>
         </div>
         );
