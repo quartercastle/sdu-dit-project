@@ -4,8 +4,6 @@ import { createPost } from "../../api/backend";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 
-import { createPost } from "../../api/backend";
-
 export default class PostCreate extends Component {
   constructor(props) {
     super(props);
@@ -19,7 +17,7 @@ export default class PostCreate extends Component {
   };
   handleSubmit = () => {
     var result = createPost(this.state.author, this.state.post);
-  }
+  };
 
   onCreatePost = () => {
     if (this.state.author.length < 1 || this.state.post.length < 1) {
