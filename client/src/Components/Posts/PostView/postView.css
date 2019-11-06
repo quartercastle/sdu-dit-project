@@ -5,3 +5,42 @@
     align-items: center;
     margin-top: 125px;
   }
+
+
+.commentListContainer {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.commentsSectionTitle {
+  margin-bottom: 20px;
+    font-weight: 700;
+    font-family: Roboto Slab,Times New Roman,serif;
+    font-size: 1.3rem;
+    line-height: 1.4em;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    max-width: 70vw;
+    min-width: 70vw;
+    text-align: center;
+}
+
+.commentInput {
+  margin-right: 25px;
+      font-family: Roboto,Helvetica,Arial,sans-serif;
+    font-weight: 300;
+    line-height: 1.5em;
+    font-size: 14px;
+    text-align: left;
+}
+
+.commentFlexBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  margin-bottom: 30px;
+}
