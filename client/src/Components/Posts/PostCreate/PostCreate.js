@@ -44,11 +44,3 @@ export default class PostCreate extends Component {
     );
   }
 }
-
-/*
-<TextField className="contentInput" label="Author"></TextField>
-          <TextField
-            className="contentInput"
-            multiline
-            label="Author"
-          ></TextField>*/
