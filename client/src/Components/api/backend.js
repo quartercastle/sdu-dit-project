@@ -29,6 +29,24 @@ const fetchPost = async id => {
   return post;
 };
 
+const creatComment = async (toId, author, comment) => {
+  console.log(
+    `Create comment for id: ${toId} from author: ${author} with comment: ${comment}`
+  );
+};
+
+const fetchComments = async id => {
+  console.log("fetching comments for id: " + id);
+};
+
+const upvote = async id => {
+  console.log("Upvoting: " + id);
+};
+
+const downvote = async id => {
+  console.log("Downvoting: " + id);
+};
+
 const createPost = async (author, content) => {
   //var res = await axios.post("/api/post/id");
   //e.preventDefault();

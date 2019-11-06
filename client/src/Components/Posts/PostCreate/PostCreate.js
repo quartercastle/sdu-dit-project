@@ -19,11 +19,11 @@ export default class PostCreate extends Component {
     var result = createPost(this.state.author, this.state.post);
   };
 
-  onCreatePost = () => {
+  onCreatePost = async () => {
     if (this.state.author.length < 1 || this.state.post.length < 1) {
       console.log("error msg");
     } else {
-      createPost(this.state.author, this.state.post);
+      await createPost(this.state.author, this.state.post);
     }
   };
 
