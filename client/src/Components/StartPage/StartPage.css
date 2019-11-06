@@ -8,7 +8,7 @@
     grid-template-columns: 300px 300px;
     justify-content: center;
 }
-.SPButtonContainer > a > button{
+.SPButtonContainer > button{
     height: 200px;
     width: 200px;
     border-radius: 2em;
@@ -17,7 +17,13 @@
     margin-top: 5em;
     font-size: 20px;
     outline: none;
+    cursor: pointer;
 }
-.SPButtonContainer > a > button:hover{
+.SPButtonContainer > button:hover{
     box-shadow: 0 2px 20px rgb(9, 211, 172);
+}
+
+.SPButtonContainer > button > a{
+    text-decoration: none;
+    color: black;
 }
