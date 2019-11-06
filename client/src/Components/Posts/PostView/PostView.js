@@ -1,5 +1,5 @@
 import React from "react";
-import { fetchPost, fetchPosts } from "../../api/backend";
+import { fetchPost, fetchPosts, createComment } from "../../api/backend";
 import PostCard from "../../Cards/PostCard";
 import CommentCard from "../../Cards/CommentCard";
 import style from "./postView.css";
@@ -11,7 +11,9 @@ export default class PostView extends React.Component {
     super(props);
     this.state = {
       post: null,
-      isLoading: true
+      isLoading: true,
+      author:'',
+      comment:''
     };
   }
 
@@ -22,6 +24,22 @@ export default class PostView extends React.Component {
   fetchPost = async () => {
     console.log("fetching post with id: " + this.props.match.params.id);
     var res = await fetchPosts(this.props.match.params.id);
+  };
+
+  onAuthorInput = event => {
+    this.setState({ author: event.target.value });
+  };
+  onPostInput = event => {
+    this.setState({ comment: event.target.value });
+  };
+
+  onCreateComment = async () => {
+    if (this.state.author.length < 1 || this.state.comment.length < 1) {
+      console.log("error msg");
+    } else {
+      await createComment(this.state.author, this.state.comment);
+      console.log(this.state)
+    }
   };
 
   renderCommentList = () => {
@@ -41,12 +59,23 @@ export default class PostView extends React.Component {
         <div className="commentsSectionTitle">
           <div className="commentFlexBox">
             <div className="commentInput">
-              <TextField label="Author"></TextField>
+            <TextField
+              className="contentInput"
+              label="Author"
+              onChange={event => this.onAuthorInput(event)}
+              value={this.state.author}
+            ></TextField>
             </div>
             <div className="commentInput">
-              <TextField label="Comment"></TextField>
+            <TextField
+              className="contentInput"
+              multiline
+              onChange={event => this.onPostInput(event)}
+              label="Comment"
+              value={this.state.post}
+            ></TextField>
             </div>
-            <Button className="submitButton" variant="contained">
+            <Button onClick={this.onCreateComment} variant="contained">
               Comment
             </Button>
           </div>
