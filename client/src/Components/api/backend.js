@@ -4,7 +4,20 @@ import uuid from "react-uuid";
 const axios = Axios.create({
   baseURL: "http://localhost:8000"
 });
-
+var comment = [
+  {
+    id: uuid(),
+    toId: 1221,
+    author: 'Jens',
+    comment:'Awesome post',
+  },
+  {
+    id: uuid(),
+    toId: 1212,
+    author: 'Peter',
+    comment:'Awesome post',
+  }
+]
 var posts = [
   {
     id: uuid(),
@@ -32,9 +45,9 @@ const fetchPost = async id => {
   return post;
 };
 
-const creatComment = async (toId, author, comment) => {
+const createComment = async (toId, author, comment) => {
   console.log(
-    `Create comment for id: ${toId} from author: ${author} with comment: ${comment}`
+    'Create comment for id: ${toId} from author: ${author} with comment: ${comment}'
   );
 };
 
@@ -61,4 +74,5 @@ const createPost = async (author, content) => {
   });
 };
 
+export { fetchPosts, fetchPost, createPost, createComment };
 export { fetchPosts, fetchPost, createPost, upvote, downvote };

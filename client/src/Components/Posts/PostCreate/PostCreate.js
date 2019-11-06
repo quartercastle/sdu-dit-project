@@ -21,6 +21,7 @@ export default class PostCreate extends Component {
       console.log("error msg");
     } else {
       await createPost(this.state.author, this.state.post);
+      console.log(this.state)
     }
   };
 
