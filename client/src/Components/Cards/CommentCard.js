@@ -41,8 +41,6 @@ class CommentCard extends React.Component {
     }
   };
 
-  renderDialog = () => {};
-
   render() {
     return (
       <div className="commentContext">
