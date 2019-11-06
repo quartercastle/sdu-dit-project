@@ -53,17 +53,6 @@ export default class PostList extends Component {
             {this.state.posts.map(v => {
               return (
                 <div>
-                  <Link key={v.id} to={`/post/${v.id}`}>
-                    <div className="cardContainer">
-                      <div className="postTitle">{v.author}</div>
-
-                      <div className="postDescription">{v.content}</div>
-
-                      <div className="postDate">{v.date}</div>
-
-                      <div></div>
-                    </div>
-                  </Link>
                   <PostCard
                     key={v.id}
                     id={v.id}
