@@ -3,10 +3,12 @@ import "./PostCreate.css";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 
+import { createPost } from "../../api/backend";
+
 export default class PostCreate extends Component {
   constructor(props) {
     super(props);
-    this.state = { author: "", post: "" };
+    this.state = { author: "", post: "", errorMsg: "", isSuccesfull: true };
   }
   onAuthorInput = event => {
     this.setState({ author: event.target.value });
@@ -19,7 +21,7 @@ export default class PostCreate extends Component {
     if (this.state.author.length < 1 || this.state.post.length < 1) {
       console.log("error msg");
     } else {
-      console.log("upload");
+      createPost(this.state.author, this.state.post);
     }
   };
 

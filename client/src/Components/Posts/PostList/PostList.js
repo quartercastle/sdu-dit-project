@@ -48,7 +48,6 @@ export default class PostList extends Component {
     if (this.state.posts.length > 0) {
       return (
         <div>
-          <Popup />
           <div className="postContainer">
             {this.state.posts.map(v => {
               return (
