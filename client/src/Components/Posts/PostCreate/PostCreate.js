@@ -15,6 +15,14 @@ export default class PostCreate extends Component {
     this.setState({ post: event.target.value });
   };
 
+  onCreatePost = () => {
+    if (this.state.author.length < 1 || this.state.post.length < 1) {
+      console.log("error msg");
+    } else {
+      console.log("upload");
+    }
+  };
+
   render() {
     return (
       <div className="postContext">
@@ -38,7 +46,9 @@ export default class PostCreate extends Component {
             ></TextField>
           </div>
 
-          <Button variant="contained">Create Post</Button>
+          <Button onClick={this.onCreatePost} variant="contained">
+            Create Post
+          </Button>
         </div>
       </div>
     );
