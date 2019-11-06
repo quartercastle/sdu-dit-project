@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import "./PostList.css";
-import Popup from './Popup/Popup'
+import Popup from "./Popup/Popup";
 import PostCard from "../../Cards/PostCard";
 import { fetchPosts } from "../../api/backend";
 import {
@@ -11,7 +11,6 @@ import {
   faChevronDown,
   faCommentAlt
 } from "@fortawesome/free-solid-svg-icons";
-
 
 export default class PostList extends Component {
   constructor(props) {
@@ -48,34 +47,35 @@ export default class PostList extends Component {
     console.log(this.state.posts);
     if (this.state.posts.length > 0) {
       return (
-      <div>
-        <Popup />
-        <div className="postContainer">
-          {this.state.posts.map(v => {
-            return (
-              <Link key={v.id} to={`/post/${v.id}`}>
-                <div className="cardContainer">
-                  
-                  <div className="postTitle">{v.author}</div>
+        <div>
+          <Popup />
+          <div className="postContainer">
+            {this.state.posts.map(v => {
+              return (
+                <div>
+                  <Link key={v.id} to={`/post/${v.id}`}>
+                    <div className="cardContainer">
+                      <div className="postTitle">{v.author}</div>
 
-                  <div className="postDescription">{v.content}</div>
+                      <div className="postDescription">{v.content}</div>
 
-                  <div className="postDate">{v.date}</div>
+                      <div className="postDate">{v.date}</div>
 
-                  <div></div>
+                      <div></div>
+                    </div>
+                  </Link>
+                  <PostCard
+                    key={v.id}
+                    id={v.id}
+                    date={v.date}
+                    author={v.author}
+                    content={v.content}
+                  ></PostCard>
                 </div>
-              </Link>
-              <PostCard
-                key={v.id}
-                id={v.id}
-                date={v.date}
-                author={v.author}
-                content={v.content}
-              ></PostCard>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
-      </div>
       );
     } else {
       return (
