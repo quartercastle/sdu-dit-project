@@ -1,0 +1,95 @@
+.commentCardContainer {
+    display: flex;
+    justify-content: space-between;
+    max-width: 65vw;
+    width: 100%;
+    text-decoration: none;
+    color: #3c4858;
+}
+
+.commentContext {
+    display: flex;
+    max-width: 65vw;
+    width: 100%;
+    flex-direction: column;
+}
+
+.subComments {
+    margin-top: 25px;
+    width: 95%;
+    max-width: 95%;
+    min-width:95%;
+    height: 100px;
+    margin-left: auto;
+}
+
+.upvoteDownVote {
+    align-items: center;
+    display: flex;
+    font-family: Roboto,Helvetica,Arial,sans-serif;
+    font-weight: 300;
+    line-height: 1.5em;
+    font-size: 16px;
+  }
+
+  .cardFooter {
+    margin-top:30px;
+    margin-bottom: -10px;
+    display: flex;
+    color: #999999;
+    justify-content: safe;
+  }
+
+  .upvoteDownVote:hover {
+    cursor: pointer;
+  }
+
+  .commentTitle {
+    margin-bottom: 20px;
+    font-family: Roboto Slab,Times New Roman,serif;
+    font-size: 18px;
+  }
+
+  .commentDescription {
+    font-family: Roboto,Helvetica,Arial,sans-serif;
+    font-weight: 300;
+    line-height: 1.5em;
+    font-size: 14px;
+    text-align: left;
+  }
+
+  .commentFooter {
+    margin-top:30px;
+    display: flex;
+    color: #999999;
+    justify-content: safe;
+    font-family: Roboto,Helvetica,Arial,sans-serif;
+    font-weight: 300;
+    line-height: 1.5em;
+    font-size: 14px;
+  }
+
+  .commentFooter:hover {
+    color: #666666;
+    cursor: pointer;
+  }
+
+  .dialog {
+        display: none;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+  }
+
+  .commentInput {
+      margin-right: 25px;
+      font-family: Roboto,Helvetica,Arial,sans-serif;
+    font-weight: 300;
+    line-height: 1.5em;
+    font-size: 14px;
+    text-align: left;
+  }
+
+  .submitButton {
+      max-height: 40px;
+  }

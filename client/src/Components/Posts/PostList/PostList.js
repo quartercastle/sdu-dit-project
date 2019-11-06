@@ -1,9 +1,16 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import "./PostList.css";
 import Popup from './Popup/Popup'
+import PostCard from "../../Cards/PostCard";
 import { fetchPosts } from "../../api/backend";
+import {
+  faChevronUp,
+  faChevronDown,
+  faCommentAlt
+} from "@fortawesome/free-solid-svg-icons";
 
 
 export default class PostList extends Component {
@@ -58,6 +65,13 @@ export default class PostList extends Component {
                   <div></div>
                 </div>
               </Link>
+              <PostCard
+                key={v.id}
+                id={v.id}
+                date={v.date}
+                author={v.author}
+                content={v.content}
+              ></PostCard>
             );
           })}
         </div>
