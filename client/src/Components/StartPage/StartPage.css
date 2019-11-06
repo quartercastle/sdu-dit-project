@@ -21,7 +21,13 @@
     margin-top: 5em;
     font-size: 20px;
     outline: none;
+    cursor: pointer;
 }
-.SPButtonContainer > a > button:hover{
+.SPButtonContainer > button:hover{
     box-shadow: 0 2px 20px rgb(9, 211, 172);
+}
+
+.SPButtonContainer > button > a{
+    text-decoration: none;
+    color: black;
 }
