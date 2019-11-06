@@ -12,6 +12,8 @@ import { tsThisType } from "@babel/types";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 
+import { upvote, downvote } from "../api/backend";
+
 class CommentCard extends React.Component {
   constructor(props) {
     super(props);
@@ -23,12 +25,12 @@ class CommentCard extends React.Component {
     this.dialogRef = React.createRef();
   }
 
-  upvote = () => {
-    console.log("upvote");
+  upvote = async () => {
+    await upvote(this.props.id);
   };
 
-  downvote = () => {
-    console.log("downvote");
+  downvote = async () => {
+    await downvote(this.props.id);
   };
 
   reply = () => {

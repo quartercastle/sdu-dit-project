@@ -25,7 +25,10 @@ const fetchPosts = async (page, pageSize) => {
 };
 const fetchPost = async id => {
   //var res = await axios.get("/api/post/id");
-  var post = posts.find(id);
+  var post = posts.filter(value => value.id === id);
+  if (post.length > 0) {
+    return post[0];
+  }
   return post;
 };
 
@@ -58,4 +61,4 @@ const createPost = async (author, content) => {
   });
 };
 
-export { fetchPosts, fetchPost, createPost };
+export { fetchPosts, fetchPost, createPost, upvote, downvote };

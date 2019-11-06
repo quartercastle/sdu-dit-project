@@ -15,9 +15,6 @@ export default class PostCreate extends Component {
   onPostInput = event => {
     this.setState({ post: event.target.value });
   };
-  handleSubmit = () => {
-    var result = createPost(this.state.author, this.state.post);
-  };
 
   onCreatePost = async () => {
     if (this.state.author.length < 1 || this.state.post.length < 1) {

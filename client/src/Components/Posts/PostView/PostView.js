@@ -1,5 +1,5 @@
 import React from "react";
-import { fetchPost, fetchPosts } from "../../api/backend";
+import { fetchPost } from "../../api/backend";
 import PostCard from "../../Cards/PostCard";
 import CommentCard from "../../Cards/CommentCard";
 import style from "./postView.css";
@@ -20,8 +20,9 @@ export default class PostView extends React.Component {
   }
 
   fetchPost = async () => {
-    console.log("fetching post with id: " + this.props.match.params.id);
-    var res = await fetchPosts(this.props.match.params.id);
+    var res = await fetchPost(this.props.match.params.id);
+    this.setState({ post: res });
+    console.log(res);
   };
 
   renderCommentList = () => {
@@ -34,10 +35,25 @@ export default class PostView extends React.Component {
     );
   };
 
+  renderPost = () => {
+    if (this.state.post) {
+      console.log(this.state.post);
+      return (
+        <PostCard
+          id={this.state.post.id}
+          author={this.state.post.author}
+          content={this.state.post.content}
+        ></PostCard>
+      );
+    } else {
+      return <div></div>;
+    }
+  };
+
   render() {
     return (
       <div className="postViewContainer">
-        <PostCard></PostCard>
+        {this.renderPost()}
         <div className="commentsSectionTitle">
           <div className="commentFlexBox">
             <div className="commentInput">

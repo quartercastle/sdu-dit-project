@@ -6,16 +6,17 @@ import {
   faChevronDown,
   faCommentAlt
 } from "@fortawesome/free-solid-svg-icons";
+import { upvote, downvote } from "../api/backend";
 
 import style from "./postCard.css";
 
 const PostCard = props => {
-  const upvote = () => {
-    console.log("Should upvote");
+  const onUpvote = async () => {
+    await upvote(props.id);
   };
 
-  const downvote = () => {
-    console.log("Should downvote");
+  const onDownvote = async () => {
+    await downvote(props.id);
   };
 
   return (
@@ -42,12 +43,12 @@ const PostCard = props => {
           <div className="upvoteDownVote">
             <div className="cardButton">
               <FontAwesomeIcon
-                onClick={() => upvote()}
+                onClick={() => onUpvote()}
                 icon={faChevronUp}
                 style={{ marginBottom: "10px" }}
               ></FontAwesomeIcon>
               <FontAwesomeIcon
-                onClick={() => downvote()}
+                onClick={() => onDownvote()}
                 icon={faChevronDown}
               ></FontAwesomeIcon>
             </div>

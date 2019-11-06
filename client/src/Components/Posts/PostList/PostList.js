@@ -51,7 +51,7 @@ export default class PostList extends Component {
           <div className="postContainer">
             {this.state.posts.map(v => {
               return (
-                <div>
+                <div key={v.id}>
                   <PostCard
                     key={v.id}
                     id={v.id}
