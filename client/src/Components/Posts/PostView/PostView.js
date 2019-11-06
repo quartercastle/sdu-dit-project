@@ -27,11 +27,9 @@ export default class PostView extends React.Component {
   renderCommentList = () => {
     return (
       <div className="commentListContainer">
-        <CommentCard>
-          <CommentCard>
-            <CommentCard></CommentCard>
-          </CommentCard>
-        </CommentCard>
+        <CommentCard></CommentCard>
+        <CommentCard></CommentCard>
+        <CommentCard></CommentCard>
       </div>
     );
   };

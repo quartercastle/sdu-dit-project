@@ -8,7 +8,11 @@
     grid-template-columns: 300px 300px;
     justify-content: center;
 }
-.SPButtonContainer > button{
+.SPButtonContainer:hover{
+    cursor: pointer;
+}
+
+.SPButtonContainer > a > button{
     height: 200px;
     width: 200px;
     border-radius: 2em;
