@@ -1,14 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronUp,
   faChevronDown,
   faCommentAlt
 } from "@fortawesome/free-solid-svg-icons";
-
-import style from "./commentCard.css";
-import { tsThisType } from "@babel/types";
+import "./commentCard.css";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 

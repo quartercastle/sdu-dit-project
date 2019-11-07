@@ -1,9 +1,10 @@
 import Axios from "axios";
 import uuid from "react-uuid";
 
-const axios = Axios.create({
+Axios.create({
   baseURL: "http://localhost:8000"
 });
+
 var comments = [
   {
     id: uuid(),

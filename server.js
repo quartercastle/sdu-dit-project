@@ -31,9 +31,6 @@ let db = mongoose.connection;
 
 // once connection is open you'll get success messsage 
 db.once('open', () => console.log('connected to the database'));
-    
-// checks if connection with the database is successful
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));    
 
 // You must make sure that you define all configurations BEFORE defining routes
 require('./routes/postsRoute')(app);    

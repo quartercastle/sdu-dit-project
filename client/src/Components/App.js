@@ -4,7 +4,7 @@ import { Router, Route, Switch } from "react-router-dom";
 import { createBrowserHistory } from "history";
 
 // Style imports
-import style from "./App.css";
+import "./App.css";
 
 // Component imports
 import Header from "./Header/Header";

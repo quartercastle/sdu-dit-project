@@ -8,8 +8,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { upvote, downvote } from "../api/backend";
 
-import style from "./postCard.css";
-
 const PostCard = props => {
   const onUpvote = async () => {
     await upvote(props.id);
@@ -30,7 +28,7 @@ const PostCard = props => {
               </div>
             </Link>
             <div className="postDescription">{props.content}</div>
-            <Link className="cardLink" key={props.id} to={`/post/${props.id}`}>
+            <Link className="cardLink" key={ 'comment_' + props.id} to={`/post/${props.id}`}>
               <div className="cardFooter">
                 0
                 <div className="awesomeIcon">

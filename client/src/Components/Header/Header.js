@@ -12,11 +12,11 @@ export default class Header extends Component {
   render() {
     return (
         <div>
-            <div class="navbar">
+            <div className="navbar">
                 <div>
-                    <Link to='/StartPage'><FontAwesomeIcon icon={faHome} size="s" />Home</Link>
-                    <Link to='/PostCreate'><FontAwesomeIcon icon={faPen} size="s" />Create post</Link>
-                    <Link to='/PostList'><FontAwesomeIcon icon={faStream} size="s" />All posts</Link>
+                    <Link to='/StartPage'><FontAwesomeIcon icon={faHome} size="sm" />Home</Link>
+                    <Link to='/PostCreate'><FontAwesomeIcon icon={faPen} size="sm" />Create post</Link>
+                    <Link to='/PostList'><FontAwesomeIcon icon={faStream} size="sm" />All posts</Link>
                 </div>
             </div>
 
