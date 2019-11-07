@@ -78,9 +78,17 @@ const createComment = async (toId, author, comment) => {
     author: author,
     comment: comment,
     date: new Date().toDateString()
-  })
+  });
   console.log(
-    'Create comment for id: ${toId} from author: ${author} with comment: ${comment}'
+    `Create comment for id: ${toId} from author: ${author} with comment: ${comment}`
   );
 };
-export { fetchPosts, fetchPost, createPost, createComment, fetchComments, upvote, downvote };
+export {
+  fetchPosts,
+  fetchPost,
+  createPost,
+  createComment,
+  fetchComments,
+  upvote,
+  downvote
+};

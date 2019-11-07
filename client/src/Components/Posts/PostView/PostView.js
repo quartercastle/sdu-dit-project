@@ -6,6 +6,7 @@ import style from "./postView.css";
 import TextField from "@material-ui/core/TextField";
 import { Button } from "@material-ui/core/";
 import { fetchCommentsFor, fetchComments } from "../../api/backend";
+import { thisExpression } from "@babel/types";
 
 export default class PostView extends React.Component {
   constructor(props) {
@@ -27,7 +28,6 @@ export default class PostView extends React.Component {
   fetchPost = async () => {
     var res = await fetchPost(this.props.match.params.id);
     this.setState({ post: res });
-    console.log(res);
   };
 
   onAuthorInput = event => {
@@ -42,17 +42,15 @@ export default class PostView extends React.Component {
       console.log("error msg");
     } else {
       await createComment(this.state.author, this.state.comment);
-      console.log(this.state);
+      this.setState({ author: "", comment: "" });
     }
   };
 
   fetchComments = async () => {
-      var result = await fetchComments();
-      this.setState({comments: result});
-      console.log(result);
-  }
+    var result = await fetchComments();
+    this.setState({ comments: result });
+  };
   renderCommentList = () => {
-    console.log(this.state.comments);
     if (this.state.comments.length > 0) {
       return (
         <div>
@@ -70,10 +68,11 @@ export default class PostView extends React.Component {
                 </div>
               );
             })}
+          </div>
         </div>
-    </div>
-      )};
-}
+      );
+    }
+  };
 
   renderPost = () => {
     if (this.state.post) {
