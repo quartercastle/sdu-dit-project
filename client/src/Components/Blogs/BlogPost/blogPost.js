@@ -1,15 +1,9 @@
 import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
-import BlogCreate from './Components/Blogs/BlogCreate/BlogCreate';
-import BlogList from './Components/Blogs/BlogList/BlogList';
 
 export default class App extends Component{
 
-  componentDidMount(){
-  }
-
-  
 render() {
   return (
     <div className="App">
@@ -19,11 +13,6 @@ render() {
           Welcome to our lovely blog! 
         </h1>
       </header>
-      <BlogList>
-        
-      </BlogList>
-      <BlogCreate>
-      </BlogCreate>
     </div>
   );
 }
