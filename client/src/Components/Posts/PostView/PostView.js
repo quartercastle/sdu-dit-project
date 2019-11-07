@@ -1,11 +1,15 @@
 import React from "react";
-import { fetchPost, fetchPosts, createComment } from "../../api/backend";
+import {
+  fetchPost,
+  fetchPosts,
+  createComment,
+  fetchComments
+} from "../../api/backend";
 import PostCard from "../../Cards/PostCard";
 import CommentCard from "../../Cards/CommentCard";
 import style from "./postView.css";
 import TextField from "@material-ui/core/TextField";
 import { Button } from "@material-ui/core/";
-import { fetchCommentsFor, fetchComments } from "../../api/backend";
 import { thisExpression } from "@babel/types";
 
 export default class PostView extends React.Component {
