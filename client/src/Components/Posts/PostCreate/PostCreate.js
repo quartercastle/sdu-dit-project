@@ -1,27 +1,33 @@
 import React, { Component } from "react";
 import "./PostCreate.css";
-import { createPost } from "../../api/backend";
+import postServices from '../../../services/postServices';
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 
 export default class PostCreate extends Component {
   constructor(props) {
     super(props);
-    this.state = { author: "", post: "", errorMsg: "", isSuccesfull: true };
+    this.state = { author: "", content: "", errorMsg: "", isSuccesfull: true };
   }
   onAuthorInput = event => {
     this.setState({ author: event.target.value });
   };
   onPostInput = event => {
-    this.setState({ post: event.target.value });
+    this.setState({ content: event.target.value });
   };
 
   onCreatePost = async () => {
-    if (this.state.author.length < 1 || this.state.post.length < 1) {
+    if (this.state.author.length < 1 || this.state.content.length < 1) {
       console.log("error msg");
     } else {
-      await createPost(this.state.author, this.state.post);
-      this.setState({ author: "", post: "" });
+
+      let data = {
+        author: this.state.author,
+        content: this.state.content
+      }
+
+      await postServices.createPost(data);
+      this.setState({ author: "", content: "" });
     }
   };
 
@@ -43,8 +49,8 @@ export default class PostCreate extends Component {
               className="contentInput"
               multiline
               onChange={event => this.onPostInput(event)}
-              label="Subject"
-              value={this.state.post}
+              label="Content"
+              value={this.state.content}
             ></TextField>
           </div>
 
