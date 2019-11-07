@@ -10,25 +10,25 @@ var comments = [
     toId: 1,
     author: "Jens",
     comment: "Awesome post",
-    date: 21/11/2018
+    date: new Date().toDateString()
   },
   {
     id: uuid(),
     toId: 0,
     author: "Peter",
     comment: "Awesome post",
-    date: 21/11/2018
+    date: new Date().toDateString()
   }
 ];
 var posts = [
   {
-    id: 0,
+    id: uuid(),
     author: "Ulle",
     content: "This is some bullshit",
     date: new Date().toDateString()
   },
   {
-    id: 1,
+    id: uuid(),
     author: "Morten",
     content: "Er ulle den klogeste person i verden? Det tror jeg nok lige",
     date: new Date().toDateString()
@@ -47,8 +47,9 @@ const fetchPost = async id => {
   return post;
 };
 const fetchComments = async id => {
+  console.log(comments);
   return comments;
-  console.log("fetching comments for id: " + id);
+  //console.log("fetching comments for id: " + id);
 };
 
 const upvote = async id => {

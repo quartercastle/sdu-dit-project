@@ -5,12 +5,13 @@ import CommentCard from "../../Cards/CommentCard";
 import style from "./postView.css";
 import TextField from "@material-ui/core/TextField";
 import { Button } from "@material-ui/core/";
-import { fetchCommentsFor } from "../../api/backend";
+import { fetchCommentsFor, fetchComments } from "../../api/backend";
 
 export default class PostView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      comments: [],
       post: null,
       isLoading: true,
       author: "",
@@ -20,6 +21,7 @@ export default class PostView extends React.Component {
 
   componentWillMount() {
     this.fetchPost();
+    this.fetchComments();
   }
 
   fetchPost = async () => {
@@ -44,14 +46,40 @@ export default class PostView extends React.Component {
     }
   };
 
+  fetchComments = async () => {
+      var result = await fetchComments();
+      this.setState({comments: result});
+      console.log(result);
+  }
   renderCommentList = () => {
-    return "";
-  };
+    console.log(this.state.comments);
+    if (this.state.comments.length > 0) {
+      return (
+        <div>
+          <div className="commentContainer">
+            {this.state.comments.map(c => {
+              return (
+                <div key={c.id}>
+                  <CommentCard
+                    key={c.id}
+                    id={c.id}
+                    date={c.date}
+                    author={c.author}
+                    comment={c.comment}
+                  ></CommentCard>
+                </div>
+              );
+            })}
+        </div>
+    </div>
+      )};
+}
 
   renderPost = () => {
     if (this.state.post) {
       return (
         <PostCard
+          date={this.state.post.date}
           id={this.state.post.id}
           author={this.state.post.author}
           content={this.state.post.content}
