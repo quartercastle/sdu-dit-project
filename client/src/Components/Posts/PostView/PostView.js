@@ -44,7 +44,11 @@ export default class PostView extends React.Component {
     if (this.state.author.length < 1 || this.state.comment.length < 1) {
       console.log("error msg");
     } else {
-      await createComment(this.state.author, this.state.comment);
+      await createComment(
+        this.state.post.id,
+        this.state.author,
+        this.state.comment
+      );
       this.setState({ author: "", comment: "" });
     }
   };
