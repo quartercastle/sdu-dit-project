@@ -1,12 +1,12 @@
 import React from "react";
-import { fetchPost, fetchPosts, createComment } from "../../api/backend";
+import { createComment } from "../../api/backend";
+import postServices from "../../../services/postServices";
 import PostCard from "../../Cards/PostCard";
+import "./postView.css";
 import CommentCard from "../../Cards/CommentCard";
-import style from "./postView.css";
 import TextField from "@material-ui/core/TextField";
 import { Button } from "@material-ui/core/";
-import { fetchCommentsFor, fetchComments } from "../../api/backend";
-import { thisExpression } from "@babel/types";
+import { fetchComments } from "../../api/backend";
 
 export default class PostView extends React.Component {
   constructor(props) {
@@ -20,13 +20,13 @@ export default class PostView extends React.Component {
     };
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     this.fetchPost();
     this.fetchComments();
   }
 
   fetchPost = async () => {
-    var res = await fetchPost(this.props.match.params.id);
+    let res = await postServices.getPost(this.props.match.params.id);
     this.setState({ post: res });
   };
 
@@ -79,7 +79,7 @@ export default class PostView extends React.Component {
       return (
         <PostCard
           date={this.state.post.date}
-          id={this.state.post.id}
+          id={this.state.post._id}
           author={this.state.post.author}
           content={this.state.post.content}
         ></PostCard>
