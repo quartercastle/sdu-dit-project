@@ -1,0 +1,46 @@
+
+.modal {
+    font-size: 12px;
+  }
+  .modal > .header {
+    width: 100%;
+    border-bottom: 1px solid gray;
+    font-size: 18px;
+    text-align: center;
+    padding: 5px;
+  }
+  .modal > .content {
+    width: 100%;
+    padding: 10px 5px;
+  }
+  .modal > .actions {
+    width: 100%;
+    padding: 10px 5px;
+    margin: auto;
+    text-align: center;
+  }
+  
+  .createPostPop{
+    margin: 100px 30px 0 30px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    
+  }
+  #submit{
+    margin: 20px 40% 20px 40%;
+  }
+  .MuiFormControl-root{
+      width: 100%;
+  }
+  .popWindow{
+      padding:2em;
+  } 
+  .postBtnContainer{
+      display: flex;
+      width: 100%;
+  }
+  #postBtn{
+      width: 30px;;
+      margin:auto;
+  }
