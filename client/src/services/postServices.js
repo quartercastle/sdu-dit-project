@@ -3,8 +3,12 @@
 import axios from 'axios';
 
 export default {
-  getAll: async () => {
+  getPosts: async () => {
     let res = await axios.get(`/api/post`);
+    return res.data || [];
+  },
+  getPost: async (id) => {
+    let res = await axios.get(`http://localhost:8000/api/post/${id}`);
     return res.data || [];
   },
   createPost: async (data) => {
