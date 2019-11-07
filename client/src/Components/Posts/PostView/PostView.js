@@ -5,7 +5,7 @@ import CommentCard from "../../Cards/CommentCard";
 import style from "./postView.css";
 import TextField from "@material-ui/core/TextField";
 import { Button } from "@material-ui/core/";
-import { fetchCommentsFor} from '../../api/backend'
+import { fetchCommentsFor } from "../../api/backend";
 
 export default class PostView extends React.Component {
   constructor(props) {
@@ -13,8 +13,8 @@ export default class PostView extends React.Component {
     this.state = {
       post: null,
       isLoading: true,
-      author:'',
-      comment:''
+      author: "",
+      comment: ""
     };
   }
 
@@ -40,24 +40,16 @@ export default class PostView extends React.Component {
       console.log("error msg");
     } else {
       await createComment(this.state.author, this.state.comment);
-      console.log(this.state)
+      console.log(this.state);
     }
   };
 
   renderCommentList = () => {
-    return (
-      <div className="commentListContainer">
-        <div className="postTitle">
-                Posted by {props.author} - {props.date}
-              </div>
-            <div className="postDescription">{props.content}</div>
-      </div>
-    );
+    return "";
   };
 
   renderPost = () => {
     if (this.state.post) {
-      console.log(this.state.post);
       return (
         <PostCard
           id={this.state.post.id}
@@ -77,21 +69,21 @@ export default class PostView extends React.Component {
         <div className="commentsSectionTitle">
           <div className="commentFlexBox">
             <div className="commentInput">
-            <TextField
-              className="contentInput"
-              label="Author"
-              onChange={event => this.onAuthorInput(event)}
-              value={this.state.author}
-            ></TextField>
+              <TextField
+                className="contentInput"
+                label="Author"
+                onChange={event => this.onAuthorInput(event)}
+                value={this.state.author}
+              ></TextField>
             </div>
             <div className="commentInput">
-            <TextField
-              className="contentInput"
-              multiline
-              onChange={event => this.onPostInput(event)}
-              label="Comment"
-              value={this.state.comment}
-            ></TextField>
+              <TextField
+                className="contentInput"
+                multiline
+                onChange={event => this.onPostInput(event)}
+                label="Comment"
+                value={this.state.comment}
+              ></TextField>
             </div>
             <Button onClick={this.onCreateComment} variant="contained">
               Comment

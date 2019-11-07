@@ -43,32 +43,16 @@ class CommentCard extends React.Component {
       this.dialogRef.current.style.display = "none";
     }
   };
-  renderComments(){
-    console.log(comments)
-    if (this.state.comments.length > 0) {
-      return (
-        <div>
-          <div className="postContainer">
-            {this.state.comments.map(c => {
-              return{
-                  author: c.author,
-                  comment: c.comment,
-                  date: c.date
-                }
-              })
-            }
-        </div>
-      </div>
-      );
-    }
-}
 
   render() {
     return (
       <div className="commentContext">
         <div className="commentCardContainer">
           <div>
-            <CommentCard />
+            <div className="commentTitle">
+              Posted by {this.props.author} - {this.props.date}{" "}
+            </div>
+            <div className="commentDescription">{this.props.comment}</div>
           </div>
           <div className="upvoteDownVote">
             <div className="cardButton">
