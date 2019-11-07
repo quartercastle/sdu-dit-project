@@ -1,16 +1,7 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 import "./PostList.css";
-import Popup from "./Popup/Popup";
 import PostCard from "../../Cards/PostCard";
-import { fetchPosts } from "../../api/backend";
-import {
-  faChevronUp,
-  faChevronDown,
-  faCommentAlt
-} from "@fortawesome/free-solid-svg-icons";
+import postServices from '../../../services/postServices';
 
 export default class PostList extends Component {
   constructor(props) {
@@ -25,7 +16,7 @@ export default class PostList extends Component {
   }
 
   getPosts = async () => {
-    var res = await fetchPosts();
+    let res = await postServices.getPosts();
 
     this.setState({ posts: res });
   };
@@ -44,18 +35,17 @@ export default class PostList extends Component {
   };
 
   renderList = () => {
-    console.log(this.state.posts);
     if (this.state.posts.length > 0) {
       return (
         <div>
           <div className="postContainer">
             {this.state.posts.map(v => {
               return (
-                <div key={v.id}>
+                <div key={v._id}>
                   <PostCard
-                    key={v.id}
-                    id={v.id}
-                    date={v.date}
+                    key={v._id}
+                    id={v._id}
+                    date={new Date(v.createdAt).toDateString()}
                     author={v.author}
                     content={v.content}
                   ></PostCard>
@@ -65,17 +55,16 @@ export default class PostList extends Component {
           </div>
         </div>
       );
-    } else {
+    } else if(!this.state.posts) {
       return (
         <div className="spinnerContainer">
-          <img className="failedImg" src="/SWW.jpeg"></img>
+          <img className="failedImg" alt="failed" src="/SWW.jpeg"></img>
         </div>
       );
     }
   };
 
   render() {
-    const { posts } = this.state;
     return <div>{this.renderContent()}</div>;
   }
 }
