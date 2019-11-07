@@ -10,7 +10,6 @@ import CommentCard from "../../Cards/CommentCard";
 import style from "./postView.css";
 import TextField from "@material-ui/core/TextField";
 import { Button } from "@material-ui/core/";
-import { thisExpression } from "@babel/types";
 
 export default class PostView extends React.Component {
   constructor(props) {
@@ -101,7 +100,7 @@ export default class PostView extends React.Component {
           <div className="commentFlexBox">
             <div className="commentInput">
               <TextField
-                className="contentInput"
+                className="conmmentInput"
                 label="Author"
                 onChange={event => this.onAuthorInput(event)}
                 value={this.state.author}
@@ -109,7 +108,7 @@ export default class PostView extends React.Component {
             </div>
             <div className="commentInput">
               <TextField
-                className="contentInput"
+                className="conmmentInput"
                 multiline
                 onChange={event => this.onPostInput(event)}
                 label="Comment"
