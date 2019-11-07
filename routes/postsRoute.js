@@ -8,6 +8,13 @@ module.exports = (app) => {
     return res.status(200).send(posts);
   });
 
+  app.get(`/api/post/:id`, async (req, res) => {
+    let {id} = req.params;
+
+    let post = await Post.findById(id);
+    return res.status(200).send(post);
+  });
+
   app.post(`/api/post`, async (req, res) => {
     let post = await Post.create(req.body);
     return res.status(201).send({
