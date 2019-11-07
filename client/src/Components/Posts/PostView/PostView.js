@@ -5,6 +5,7 @@ import CommentCard from "../../Cards/CommentCard";
 import style from "./postView.css";
 import TextField from "@material-ui/core/TextField";
 import { Button } from "@material-ui/core/";
+import { fetchCommentsFor} from '../../api/backend'
 
 export default class PostView extends React.Component {
   constructor(props) {
@@ -46,9 +47,10 @@ export default class PostView extends React.Component {
   renderCommentList = () => {
     return (
       <div className="commentListContainer">
-        <CommentCard></CommentCard>
-        <CommentCard></CommentCard>
-        <CommentCard></CommentCard>
+        <div className="postTitle">
+                Posted by {props.author} - {props.date}
+              </div>
+            <div className="postDescription">{props.content}</div>
       </div>
     );
   };
@@ -88,7 +90,7 @@ export default class PostView extends React.Component {
               multiline
               onChange={event => this.onPostInput(event)}
               label="Comment"
-              value={this.state.post}
+              value={this.state.comment}
             ></TextField>
             </div>
             <Button onClick={this.onCreateComment} variant="contained">

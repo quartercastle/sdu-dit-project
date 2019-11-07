@@ -19,7 +19,8 @@ class CommentCard extends React.Component {
     super(props);
 
     this.state = {
-      dialogOpen: false
+      dialogOpen: false,
+      comments: []
     };
 
     this.dialogRef = React.createRef();
@@ -42,14 +43,32 @@ class CommentCard extends React.Component {
       this.dialogRef.current.style.display = "none";
     }
   };
+  renderComments(){
+    console.log(comments)
+    if (this.state.comments.length > 0) {
+      return (
+        <div>
+          <div className="postContainer">
+            {this.state.comments.map(c => {
+              return{
+                  author: c.author,
+                  comment: c.comment,
+                  date: c.date
+                }
+              })
+            }
+        </div>
+      </div>
+      );
+    }
+}
 
   render() {
     return (
       <div className="commentContext">
         <div className="commentCardContainer">
           <div>
-            <div className="commentTitle">Posted by Morten - 3apr, 2017 </div>
-            <div className="commentDescription">Total inteligent kommentar</div>
+            <CommentCard />
           </div>
           <div className="upvoteDownVote">
             <div className="cardButton">

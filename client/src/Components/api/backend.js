@@ -4,29 +4,31 @@ import uuid from "react-uuid";
 const axios = Axios.create({
   baseURL: "http://localhost:8000"
 });
-var comment = [
+var comments = [
   {
     id: uuid(),
-    toId: 1221,
+    toId: 1,
     author: "Jens",
-    comment: "Awesome post"
+    comment: "Awesome post",
+    date: 21/11/2018
   },
   {
     id: uuid(),
-    toId: 1212,
+    toId: 0,
     author: "Peter",
-    comment: "Awesome post"
+    comment: "Awesome post",
+    date: 21/11/2018
   }
 ];
 var posts = [
   {
-    id: uuid(),
+    id: 0,
     author: "Ulle",
     content: "This is some bullshit",
     date: new Date().toDateString()
   },
   {
-    id: uuid(),
+    id: 1,
     author: "Morten",
     content: "Er ulle den klogeste person i verden? Det tror jeg nok lige",
     date: new Date().toDateString()
@@ -44,14 +46,8 @@ const fetchPost = async id => {
   }
   return post;
 };
-
-const createComment = async (toId, author, comment) => {
-  console.log(
-    "Create comment for id: ${toId} from author: ${author} with comment: ${comment}"
-  );
-};
-
 const fetchComments = async id => {
+  return comments;
   console.log("fetching comments for id: " + id);
 };
 
@@ -74,4 +70,16 @@ const createPost = async (author, content) => {
   });
 };
 
-export { fetchPosts, fetchPost, createPost, createComment, upvote, downvote };
+const createComment = async (toId, author, comment) => {
+  comments.push({
+    id: uuid(),
+    toId: toId,
+    author: author,
+    comment: comment,
+    date: new Date().toDateString()
+  })
+  console.log(
+    'Create comment for id: ${toId} from author: ${author} with comment: ${comment}'
+  );
+};
+export { fetchPosts, fetchPost, createPost, createComment, fetchComments, upvote, downvote };
