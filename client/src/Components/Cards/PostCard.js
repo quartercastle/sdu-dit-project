@@ -7,6 +7,7 @@ import {
   faCommentAlt
 } from "@fortawesome/free-solid-svg-icons";
 import { upvote, downvote } from "../api/backend";
+import style from './postCard.css';
 
 const PostCard = props => {
   const onUpvote = async () => {
