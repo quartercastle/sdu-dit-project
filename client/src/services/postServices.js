@@ -16,7 +16,7 @@ export default {
     return res.data || [];
   },
   updatePost: async (id, data) => {
-    let res = await axios.post(`http://localhost:8000/api/post/${id}`, data);
+    let res = await axios.put(`http://localhost:8000/api/post/${id}`, data);
     return res.data || [];
   },
   deletePost: async (id) => {
