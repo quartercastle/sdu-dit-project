@@ -1,14 +1,12 @@
-import React from "react";
-import { createComment } from "../../api/backend";
+import React, {Component} from "react";
 import postServices from "../../../services/postServices";
 import PostCard from "../../Cards/PostCard";
 import "./postView.css";
 import CommentCard from "../../Cards/CommentCard";
 import TextField from "@material-ui/core/TextField";
 import { Button } from "@material-ui/core/";
-import { fetchComments } from "../../api/backend";
 
-export default class PostView extends React.Component {
+export default class PostView extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -22,6 +20,9 @@ export default class PostView extends React.Component {
 
   UNSAFE_componentWillMount() {
     this.fetchPost();
+  }
+
+  componentDidUpdate(){
     this.fetchComments();
   }
 
@@ -41,15 +42,30 @@ export default class PostView extends React.Component {
     if (this.state.author.length < 1 || this.state.comment.length < 1) {
       console.log("error msg");
     } else {
-      await createComment(this.state.author, this.state.comment);
+
+      let comment = {
+        author: this.state.author,
+        comment: this.state.comment,
+        date: new Date().toDateString(),
+        vote: 0
+      };
+
+      let data = this.state.post;
+
+      data.comments.push(comment)
+
+      await postServices.updatePost(this.props.match.params.id, data)
+
       this.setState({ author: "", comment: "" });
     }
   };
 
   fetchComments = async () => {
-    var result = await fetchComments();
-    this.setState({ comments: result });
+    let res = await postServices.getPost(this.props.match.params.id);
+
+    this.setState({comments: res.comments})
   };
+
   renderCommentList = () => {
     if (this.state.comments.length > 0) {
       return (
@@ -57,13 +73,15 @@ export default class PostView extends React.Component {
           <div className="commentContainer">
             {this.state.comments.map(c => {
               return (
-                <div key={c.id}>
+                <div key={c._id}>
                   <CommentCard
                     key={c.id}
-                    id={c.id}
+                    id={c._id}
+                    votes={c.vote}
                     date={c.date}
                     author={c.author}
                     comment={c.comment}
+                    post={this.state.post}
                   ></CommentCard>
                 </div>
               );
