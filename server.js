@@ -8,7 +8,7 @@ const PORT = 8000;
 
 // import models for database
 require('./models/post');
-// import routes 
+// import routes
 
 // server setup
 app.use(cors());
@@ -21,19 +21,19 @@ mongoose.Promise = global.Promise;
 
 // Establish connection
 mongoose
-    .connect('mongodb://localhost:27017/blogdatabase', { useUnifiedTopology: true, useNewUrlParser: true  })
+    .connect(`mongodb://${process.env.DB_HOST || 'localhost'}:27017/blogdatabase`, { useUnifiedTopology: true, useNewUrlParser: true  })
     .catch(e => {
         console.error('Connection error', e.message)
     })
 
-// assign db connection to variable so we can check once open or error    
+// assign db connection to variable so we can check once open or error
 let db = mongoose.connection;
 
-// once connection is open you'll get success messsage 
+// once connection is open you'll get success messsage
 db.once('open', () => console.log('connected to the database'));
 
 // You must make sure that you define all configurations BEFORE defining routes
-require('./routes/postsRoute')(app);    
+require('./routes/postsRoute')(app);
 
 app.listen(PORT, () => {
     console.log(`The app is running on port ${PORT}`)
