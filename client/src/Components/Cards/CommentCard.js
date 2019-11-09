@@ -8,8 +8,7 @@ import {
 import "./commentCard.css";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-
-import { upvote, downvote } from "../api/backend";
+import postServices from "../../services/postServices";
 
 class CommentCard extends React.Component {
   constructor(props) {
@@ -24,11 +23,17 @@ class CommentCard extends React.Component {
   }
 
   upvote = async () => {
-    await upvote(this.props.id);
+    let data = this.props.post;
+    let newData = data.comments.find( comment => comment._id === this.props.id )
+    newData.vote++; 
+    await postServices.updatePost(this.props.post._id, data);
   };
 
   downvote = async () => {
-    await downvote(this.props.id);
+    let data = this.props.post;
+    let newData = data.comments.find( comment => comment._id === this.props.id )
+    newData.vote--; 
+    await postServices.updatePost(this.props.post._id, data);
   };
 
   reply = () => {
@@ -63,7 +68,7 @@ class CommentCard extends React.Component {
                 icon={faChevronDown}
               ></FontAwesomeIcon>
             </div>
-            {this.props.votes}0
+            {this.props.votes}
           </div>
         </div>
         <div onClick={() => this.reply()} className="commentFooter">
