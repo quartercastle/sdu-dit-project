@@ -1,5 +1,17 @@
 version: '3'
 services:
+  server:
+    build: .
+    environment:
+      DB_HOST: "db"
+    ports:
+      - 3000:3000
+      - 8000:8000
+    depends_on:
+      - db
+    links:
+      - db
+
   db:
     image: mongo
     restart: always
