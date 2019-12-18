@@ -1,27 +1,49 @@
-//  /client/src/services/postServices.js
-
-import axios from 'axios';
+const options = {
+  mode: 'cors',
+  cache: 'no-cache',
+  credentials: 'same-origin',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  redirect: 'follow',
+  referrer: 'no-referrer',
+}
 
 export default {
   getPosts: async () => {
-    let res = await axios.get(`http://localhost:8000/api/post`);
-    return res.data || [];
+    let res = await fetch(`http://localhost:8000/api/post`);
+    const data = await res.json()
+    return data || [];
   },
   getPost: async (id) => {
-    let res = await axios.get(`http://localhost:8000/api/post/${id}`);
-    return res.data || [];
+    let res = await fetch(`http://localhost:8000/api/post/${id}`);
+    const data = await res.json()
+    return data || [];
   },
-  createPost: async (data) => {
-    let res = await axios.post(`http://localhost:8000/api/post`, data);
-    return res.data || [];
+  createPost: async (body) => {
+    let res = await fetch(`http://localhost:8000/api/post`, {
+      method: 'POST',
+      body: JSON.stringify(body),
+      ...options,
+    });
+    const data = await res.json()
+    return data || [];
   },
-  updatePost: async (id, data) => {
-    let res = await axios.put(`http://localhost:8000/api/post/${id}`, data);
-    return res.data || [];
+  updatePost: async (id, body) => {
+    let res = await fetch(`http://localhost:8000/api/post/${id}`, {
+      method: 'PUT',
+      body: JSON.stringify(body),
+      ...options
+    });
+    const data = await res.json()
+    return data || [];
   },
   deletePost: async (id) => {
-    let res = await axios.delete(`http://localhost:8000/api/post/${id}`);
-    return res.data || [];
+    let res = await fetch(`http://localhost:8000/api/post/${id}`, {
+      method: 'DELETE'
+    });
+    const data = await res.json()
+    return data || [];
   }
 
 }
