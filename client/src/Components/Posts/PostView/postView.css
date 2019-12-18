@@ -45,6 +45,12 @@
   flex-wrap: nowrap;
   margin-bottom: 30px;
 }
+
+.titleBox {
+  margin-top: 15px;
+  margin-bottom: 30px;
+}
+
 .contentInput{
   width:100%
 }

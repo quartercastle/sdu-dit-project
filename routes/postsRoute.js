@@ -44,7 +44,5 @@ module.exports = (app) => {
       error: false,
       post
     })
-
   })
-
 }

@@ -1,10 +1,13 @@
 import React, { Component } from "react";
 import "./PostCreate.css";
-import postServices from '../../../services/postServices';
+import postServices from "../../../services/postServices";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 
-export default class PostCreate extends Component {
+import { createPost } from "../../../api/GraphQueries";
+import { graphql, compose } from "react-apollo";
+
+class PostCreate extends Component {
   constructor(props) {
     super(props);
     this.state = { author: "", content: "", errorMsg: "", isSuccesfull: true };
@@ -20,13 +23,18 @@ export default class PostCreate extends Component {
     if (this.state.author.length < 1 || this.state.content.length < 1) {
       console.log("error msg");
     } else {
-
       let data = {
         author: this.state.author,
         content: this.state.content
-      }
+      };
 
-      await postServices.createPost(data);
+      this.props.createPost({
+        variables: {
+          author: this.state.author,
+          content: this.state.content
+        }
+      });
+
       this.setState({ author: "", content: "" });
     }
   };
@@ -62,3 +70,5 @@ export default class PostCreate extends Component {
     );
   }
 }
+
+export default compose(graphql(createPost, { name: "createPost" }))(PostCreate);

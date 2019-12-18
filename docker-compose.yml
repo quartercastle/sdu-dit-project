@@ -6,7 +6,7 @@ services:
       DB_HOST: "db"
     ports:
       - 3000:3000
-      - 8000:8000
+      - 4000:4000
     depends_on:
       - db
     links:

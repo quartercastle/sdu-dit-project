@@ -10,6 +10,9 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import postServices from "../../services/postServices";
 
+import { graphql, compose } from "react-apollo";
+import { voteComment, getPostQuery } from "../../api/GraphQueries";
+
 class CommentCard extends React.Component {
   constructor(props) {
     super(props);
@@ -23,17 +26,37 @@ class CommentCard extends React.Component {
   }
 
   upvote = async () => {
-    let data = this.props.post;
-    let newData = data.comments.find( comment => comment._id === this.props.id )
-    newData.vote++; 
-    await postServices.updatePost(this.props.post._id, data);
+    await this.props.voteComment({
+      variables: {
+        id: this.props.id,
+        shouldUpvote: true
+      },
+      refetchQueries: [
+        {
+          query: getPostQuery,
+          variables: { id: this.props.parentId }
+        }
+      ]
+    });
+    /*let data = this.props.post;
+    let newData = data.comments.find(comment => comment._id === this.props.id);
+    newData.vote++;
+    await postServices.updatePost(this.props.post._id, data);*/
   };
 
   downvote = async () => {
-    let data = this.props.post;
-    let newData = data.comments.find( comment => comment._id === this.props.id )
-    newData.vote--; 
-    await postServices.updatePost(this.props.post._id, data);
+    await this.props.voteComment({
+      variables: {
+        id: this.props.id,
+        shouldUpvote: false
+      },
+      refetchQueries: [
+        {
+          query: getPostQuery,
+          variables: { id: this.props.parentId }
+        }
+      ]
+    });
   };
 
   reply = () => {
@@ -94,4 +117,6 @@ class CommentCard extends React.Component {
   }
 }
 
-export default CommentCard;
+export default compose(graphql(voteComment, { name: "voteComment" }))(
+  CommentCard
+);

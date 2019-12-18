@@ -1,5 +1,5 @@
 {
-  "name": "dit-project",
+  "name": "GraphQL",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -16,7 +16,10 @@
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "mongoose": "^5.7.7",
+    "express-graphql": "^0.9.0",
+    "graphql": "^14.5.8",
+    "lodash": "^4.17.15",
+    "mongoose": "^5.8.1",
     "react-uuid": "^1.0.2"
   },
   "devDependencies": {
