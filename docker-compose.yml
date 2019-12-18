@@ -19,3 +19,8 @@ services:
       MONGO_INITDB_DATABASE: blogdatabase
     ports:
       - 27017:27017
+
+  upsub:
+    image: upsub/dispatcher
+    ports:
+      - 4400:4400

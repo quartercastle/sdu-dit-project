@@ -5,6 +5,9 @@ import "./postView.css";
 import CommentCard from "../../Cards/CommentCard";
 import TextField from "@material-ui/core/TextField";
 import { Button } from "@material-ui/core/";
+import Client from '@upsub/client'
+
+const client = new Client('ws://localhost:4400')
 
 export default class PostView extends Component {
   constructor(props) {
@@ -20,15 +23,21 @@ export default class PostView extends Component {
 
   UNSAFE_componentWillMount() {
     this.fetchPost();
+    client.on('new/comment', comment => this.setState({
+      comments: [...this.state.comments, comment]
+    }))
   }
 
-  componentDidUpdate(){
-    this.fetchComments();
+  componentWillUnmount() {
+    client.off('new/comment')
   }
 
   fetchPost = async () => {
     let res = await postServices.getPost(this.props.match.params.id);
-    this.setState({ post: res });
+    this.setState({
+      post: res,
+      comments: res.comments
+    });
   };
 
   onAuthorInput = event => {
@@ -50,13 +59,16 @@ export default class PostView extends Component {
         vote: 0
       };
 
-      let data = this.state.post;
+      client.send('new/comment', comment)
+      this.setState({
+        author: "",
+        comment: "",
+        comments: [...this.state.comments, comment]
+      });
 
-      data.comments.push(comment)
-
-      await postServices.updatePost(this.props.match.params.id, data)
-
-      this.setState({ author: "", comment: "" });
+      const post = await postServices.getPost(this.props.match.params.id)
+      post.comments.push(comment)
+      await postServices.updatePost(this.props.match.params.id, post)
     }
   };
 
