@@ -22,13 +22,12 @@ export default class PostView extends Component {
     this.fetchPost();
   }
 
-  componentDidUpdate(){
-    this.fetchComments();
-  }
-
   fetchPost = async () => {
     let res = await postServices.getPost(this.props.match.params.id);
-    this.setState({ post: res });
+    this.setState({
+      post: res,
+      comments: res.comments,
+    });
   };
 
   onAuthorInput = event => {
@@ -58,12 +57,6 @@ export default class PostView extends Component {
 
       this.setState({ author: "", comment: "" });
     }
-  };
-
-  fetchComments = async () => {
-    let res = await postServices.getPost(this.props.match.params.id);
-
-    this.setState({comments: res.comments})
   };
 
   renderCommentList = () => {
