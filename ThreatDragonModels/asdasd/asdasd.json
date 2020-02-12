@@ -6,9 +6,16 @@
     "contributors": [],
     "diagrams": [
       {
-        "title": "asdasd",
+        "title": "LocalAndroid",
         "thumbnail": "./public/content/images/thumbnail.jpg",
-        "id": 0
+        "id": 0,
+        "diagramJson": {
+          "cells": []
+        },
+        "size": {
+          "height": 590,
+          "width": 790
+        }
       }
     ]
   }
